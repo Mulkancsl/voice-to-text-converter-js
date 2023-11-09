@@ -22,14 +22,29 @@ body {
     text-align: center;
 }
 
-#__convert_text {
+#__convert_text_speech, #__convert_text, #__convert_text2, #__convert_text3, #__convert_text4 {
     width: 100%;
-    height: 200px;
+    height: 100px;
     border-radius: 10px;
     resize: none;
     padding: 10px;
     font-size: 20px;
     margin-bottom: 10px;
+}
+
+#__convert_text_speech {
+    height: 200px;
+}
+
+.head-label {
+    color: aquamarine;
+    text-align: start;
+}
+
+.floating-button {
+    position: absolute;
+    top: 10vh;
+    left: 70vw;
 }
 
 h1 {

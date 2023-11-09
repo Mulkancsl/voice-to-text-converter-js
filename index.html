@@ -10,7 +10,7 @@
 
 <body>
     <div class="voice_to_text">
-        <h1>Hello World</h1>
+        <button class="floating-button" id="custome_button">Voice To Text</button>
         <div id="vtt"></div>
     </div>
 
@@ -18,8 +18,8 @@
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
             voiceToText({
-                // defaultButton: false,
-                // customeButton: "custome_button"
+                defaultButton: false,
+                customeButton: "custome_button"
             });
         });
     </script>
