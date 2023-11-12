@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Implement Modules</title>
     <link rel="stylesheet" href="modules/vtt/css/speech.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -20,9 +22,35 @@
         <textarea id="taObjek" cols="30" rows="10"></textarea>
         <textarea id="taAssessmen" cols="30" rows="10"></textarea>
         <textarea id="taPlan" cols="30" rows="10"></textarea>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <span id="modal-review-speech"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="modules/vtt/js/speechtest.js"></script>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
@@ -36,7 +64,8 @@
                     ["Riwayat medis", "Pemeriksaan fisik", "Gejala", "Keluhan pasien", "Riwayat penyakit", "Hasil laboratorium", "Radiologi", "Pemeriksaan darah", "Diagnosa", "Analisis klinis", "Penyakit dalam", "Pencitraan medis", "Endoskopi", "Kolonoskopi", "Endoskopi lambung", "Pemeriksaan jantung", "Hasil CT scan", "Evaluasi medis", "Pemeriksaan radiologi", "Diagnosis banding", "Alergi obat", "Kondisi medis", "Infeksi", "Penyakit autoimun", "Sistem pencernaan", "Penyakit hati", "Pankreatitis", "Divertikulitis", "Polip usus", "Gastroenteritis", "Kolesistitis", "Malabsorpsi", "Iskemia usus", "Kanker usus besar", "Gastroesophageal Reflux Disease (GERD)", "Gagal jantung", "Aritmia", "Angina", "Infark miokard", "Hipertensi", "Aterosklerosis", "Penyakit vaskular", "Kolesterol tinggi", "Diabetes", "Trombosis", "Perdarahan", "Pemeriksaan tinja", "Ultrasonografi", "Dispepsia", "Terapi nutrisi", "Terapi farmakologis", "Diet khusus", "Pencegahan", "Perawatan jangka panjang", "Komplikasi", "Tumor perut", "Manajemen nyeri", "Rehabilitasi jantung", "Tatalaksana medis", "Perawatan kardiologi", "Penyakit pembuluh darah", "Operasi jantung", "Laparoskopi", "Usia lanjut", "Kanker pencernaan", "Masalah pencernaan", "Pencegahan kambuh", "Kolon", "Terapi rehabilitasi", "Kondisi serius", "Gangguan sistemik", "Penyakit autoimun", "Esofagitis", "Peradangan usus", "Pemantauan berkala", "Gastroenterologi", "Peradangan lambung", "Tukak lambung", "Gagal ginjal", "Aneurisma aorta", "Peritonitis", "Resiko kesehatan", "Pemulihan pasien", "Prognosis", "Kualitas hidup", "Rekomendasi perawatan", "Manajemen penyakit", "Pencegahan kesehatan", "Pemberian obat", "Pemeriksaan psikologis", "Kondisi kronis", "Pola makan", "Respon terapi", "Peran keluarga", "Pemahaman pasien", "Psikoterapi", "Rujukan spesialis", "Kebutuhan pasien", "Masalah sosial", "Perencanaan tindak lanjut"],
                     ['Pemantauan gula darah', 'Edukasi perawat', 'Pencegahan kambuh', 'Perawatan penyakit pankreas', 'Manajemen alergi obat', 'Pemberian obat', 'Rencana diet rendah gula', 'Tindak lanjut', 'Diet dan nutrisi', 'Manajemen kanker pencernaan', 'Penggunaan obat antibiotik', 'Perawatan jangka panjang', 'Terapi nutrisi parenteral', 'Terapi radioterapi', 'Rencana nutrisi bayi', 'Pemantauan kadar kolesterol', 'Perawatan anak-anak', 'Pengawasan kesehatan berkala', 'Pemantauan kesehatan', 'Terapi fisik untuk pasien lansia', 'Pemulihan paska operasi', 'Perencanaan tindak lanjut', 'Perencanaan diet rendah karbohidrat', 'Rencana pengendalian infeksi', 'Terapi radioterapi kanker pencernaan', 'Konseling pasien', 'Terapi fisik', 'Rencana perawatan stroke', 'Perencanaan nutrisi anak-anak', 'Program penghentian merokok', 'Program pemantauan diri', 'Perencanaan diet rendah garam', 'Pemulihan pasien', 'Perawatan penyakit autoimun', 'Konseling diet', 'Perawatan luka', 'Edukasi pasien diabetik', 'Pemberian vaksin', 'Perawatan penyakit lambung', 'Manajemen berat badan', 'Manajemen kesehatan tubuh', 'Perawatan penyakit kronis', 'Perawatan kesehatan mental', 'Terapi medis', 'Infus intravena', 'Rencana diet vegetarian', 'Rencana diet rendah sodium', 'Kebutuhan psikologis', 'Pemeriksaan berkala', 'Manajemen nyeri', 'Terapi hormonal', 'Olahraga teratur', 'Pemeriksaan kesehatan tahunan', 'Manajemen stres', 'Pencegahan jatuh', 'Perencanaan nutrisi orang tua', 'Perawatan peradangan usus', 'Pengawasan gula darah', 'Tes laboratorium', 'Manajemen penyakit autoimun', 'Manajemen nutrisi enteral', 'Manajemen komplikasi', 'Pemantauan gizi', 'Terapi farmakologis', 'Tindakan rehabilitasi', 'Perubahan gaya hidup', 'Kebutuhan oksigen', 'Pencegahan penyakit autoimun', 'Perencanaan diet rendah kolesterol', 'Terapi penyakit autoimun', 'Pencegahan', 'Rencana perawatan diet remaja', 'Perawatan penyakit hati', 'Manajemen penyakit sistemik', 'Rekomendasi perawatan', 'Pemulihan paska stroke', 'Pencegahan penyakit hati', 'Rencana kepatuhan', 'Program diet sehat', 'Edukasi pasien', 'Perencanaan nutrisi balita', 'Perawatan penyakit lambung', 'Perawatan lanjut usia', 'Konsultasi spesialis', 'Pencegahan gangguan pencernaan', 'Manajemen penyakit pencernaan', 'Pemantauan asupan kalori', 'Terapi psikologis', 'Pencegahan penyakit gastrointestinal', 'Perawatan penyakit jantung', 'Diet khusus', 'Edukasi keluarga', 'Pemeriksaan radiologi', 'Pencegahan penyakit vaskular', 'Terapi fisik kardiak'],
                 ],
-                dataElementId: ['taSubjek', 'taObjek', 'taAssessmen', 'taPlan']
+                dataElementId: ['taSubjek', 'taObjek', 'taAssessmen', 'taPlan'],
+                applySpeechTo: "#modal-review-speech"
             });
         });
     </script>

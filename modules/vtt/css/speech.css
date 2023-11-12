@@ -61,3 +61,30 @@
     border: 1px solid #5c5c5c;
     box-shadow: 2px 2px 3px #83838375;
 }
+
+#__review_speech {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    min-height: 100px;
+    border-radius: 10px;
+    resize: none;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#__review_speech::after {
+    content: "" !important;
+    background-color: #0ea4da !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    resize: none;
+    padding: 10px;
+}

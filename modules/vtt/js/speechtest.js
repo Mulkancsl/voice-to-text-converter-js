@@ -5,6 +5,7 @@ function voiceToText(setting) {
     _id_modalInfo = "__draft_result"
     _id_indicatorRecord = "__indicator_recording"
     _id_buttonRecord = "__click_to_convert"
+    _id_reviewSpeech = ""
     // ========== END - ASIGN  ID ===============
 
 
@@ -15,6 +16,7 @@ function voiceToText(setting) {
     isDataElementId = false
     contentButtonDefault = ""
     isContentButtonDefault = false
+    isReviewSpeech = false
     // ======== END - SETTING ============
 
 
@@ -37,6 +39,10 @@ function voiceToText(setting) {
             isContentButtonDefault = true
             contentButtonDefault = document.querySelector(setting.contentButtonDefault).innerHTML
         }
+        if (setting.applySpeechTo != undefined) {
+            isReviewSpeech = true
+            _id_reviewSpeech = setting.applySpeechTo
+        }
     }
     // ======== END - CONDITIONAL OPTION ========
 
@@ -55,11 +61,13 @@ function voiceToText(setting) {
     buttonRecord.id = _id_buttonRecord
     buttonRecord.innerHTML = "Voice To Text"
 
+    // ======================================================
     document.querySelector("body").appendChild(modalInfo);
 
     if (showDefaultButton) {
         document.querySelector("body").appendChild(buttonRecord);
     }
+    // ======================================================
     // ======== END - EMBEDDING UTILITIES ========
 
 
@@ -147,6 +155,10 @@ function voiceToText(setting) {
         var cleanedArray = arr.map(function (item) {
             return item.replace(/\s+/g, ' ').trim();
         });
+
+        if(isReviewSpeech){
+            document.querySelector(_id_reviewSpeech).innerHTML = cleanedArray[0]
+        }
 
         var matchingData = {};
 

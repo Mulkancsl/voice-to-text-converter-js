@@ -10,9 +10,9 @@ body {
     font-size: 16px;
     margin: 0;
     background: #031f6a;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     min-height: 150vh;
     color: #000;
 }
